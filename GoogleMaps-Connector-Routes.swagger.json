@@ -1,0 +1,125 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "GoogleMaps Connector Routes",
+    "description": "rotas do google maps para caminhoes",
+    "version": "1.0"
+  },
+  "host": "routes.googleapis.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/directions/v2:computeRoutes": {
+      "post": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Calcular Rota para Caminhão",
+        "description": "Calcula a rota, distância e pedágios para um caminhão.",
+        "operationId": "CalcularRotaCaminhao",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "X-Goog-FieldMask",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "origin": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string",
+                      "description": "address"
+                    }
+                  },
+                  "description": "origin"
+                },
+                "destination": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string",
+                      "description": "address"
+                    }
+                  },
+                  "description": "destination"
+                },
+                "travelMode": {
+                  "type": "string",
+                  "description": "travelMode"
+                },
+                "routingPreference": {
+                  "type": "string",
+                  "description": "routingPreference"
+                },
+                "extraComputations": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "extraComputations"
+                },
+                "routeModifiers": {
+                  "type": "object",
+                  "properties": {
+                    "vehicleInfo": {
+                      "type": "object",
+                      "properties": {
+                        "emissionType": {
+                          "type": "string",
+                          "description": "emissionType"
+                        }
+                      },
+                      "description": "vehicleInfo"
+                    }
+                  },
+                  "description": "routeModifiers"
+                },
+                "units": {
+                  "type": "string",
+                  "description": "units"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "in": "query",
+      "name": "key"
+    }
+  },
+  "security": [
+    {
+      "api_key": []
+    }
+  ],
+  "tags": []
+}
