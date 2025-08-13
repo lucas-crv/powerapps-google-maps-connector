@@ -1,0 +1,51 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "GoogleMaps Connector",
+    "description": "\"Conector para calcular rotas de caminhão com a API do Google\"",
+    "version": "1.0"
+  },
+  "host": "maps.googleapis.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/directions/v2:computeRoutes": {},
+    "/maps/api/geocode/json": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "Obter Coordenadas do Endereço",
+        "description": "Converte um endereço em latitude e longitude.",
+        "operationId": "ObterCoordenadas",
+        "parameters": [
+          {
+            "name": "address",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "in": "query",
+      "name": "key"
+    }
+  },
+  "security": [],
+  "tags": []
+}
